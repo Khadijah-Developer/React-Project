@@ -8,9 +8,9 @@ module.exports.authenticate = function(req, res, next) {
     if(!authHeader) {
         return res.status(403).json({error: "No token provided"})
     }
-
-    const token = authHeader.substring(7)
-
+    //---
+    const token = authHeader.substring(8,authHeader.length-1)
+    //console.log(token)
     jwt.verify(token, secretKey, (err, decodedToken) => {
         if(err) {
             res.status(401).json({error: "Bad token"})

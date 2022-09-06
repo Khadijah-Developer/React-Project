@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const UserSchema = mongoose.Schema({
-  nameUser: {
+  username: {
     type: String,
     required: [true, "Name is required"],
     minlength: [3, "Name must be at least 3 chars"]
@@ -22,6 +22,13 @@ const UserSchema = mongoose.Schema({
     required: [true, "Password is required"],
     minLength: 4,
   },
+
+  // ticket:{
+  //   type:mongoose.Schema.Types.ObjectId,
+  // 	ref: 'ticket'
+  // }
+
+
 });
 UserSchema.virtual("confirmPassword")
   .get(() => this._confirmPassword)
