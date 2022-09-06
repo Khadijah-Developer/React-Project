@@ -6,6 +6,13 @@ module.exports.findAllFlights = (req, res) => {
         .catch(err => res.json({ message: "something went wrong", error: err }))
 }
 
+module.exports.findFlightsBycity = (req, res) => {
+    Flight.find({ destination: req.params.city})
+        .then(allFlights => res.json({ flights: allFlights }))
+        .catch(err => res.json({ message: "something went wrong", error: err }))
+}
+
+
 module.exports.findSingleFlight = (req, res) => {
     Flight.findOne({ _id: req.params.id })
         .then(singleFlight => res.json({ flight: singleFlight }))
