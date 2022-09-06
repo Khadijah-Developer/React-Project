@@ -4,7 +4,9 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import AllData from './components/AllData';
 import Allflights from './components/Allflights';
 import RegisterLogin from './components/RegisterLogin';
-
+import HomeTest from './components/HomeTest';
+import CityFlights from './components/CityFlights'
+import Booking from './components/Booking';
 
 function App() {
   return (
@@ -15,8 +17,20 @@ function App() {
           <Route exact path='/'>
             <RegisterLogin />
           </Route>
-          <Route path="/flights">
+          <Route exact path="/flights">
             <Allflights />
+          </Route>
+
+          <Route exact path="/home">
+            <HomeTest />
+          </Route>
+
+          <Route exact path="/flights/:city">
+            <CityFlights />
+          </Route>
+
+          <Route path="/book/:flight_id">
+            <Booking />
           </Route>
 
         </Switch>
