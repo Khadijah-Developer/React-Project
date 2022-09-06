@@ -40,7 +40,11 @@ const flightscheme = new mongoose.Schema(
         //     type:String,
         //     default: 0
         // },
-        Flight_NO: { type: mongoose.Schema.Types.ObjectId, index: true, required: true, auto: true, }
+        Flight_NO: { type: mongoose.Schema.Types.ObjectId, index: true, required: true, auto: true
+         }, 
+        price:{
+            type:Number
+         }
 
     },
 
