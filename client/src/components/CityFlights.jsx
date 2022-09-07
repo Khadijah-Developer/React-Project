@@ -14,7 +14,7 @@ const CityFlights = props => {
     const instance = axios.create({
         baseURL: 'http://localhost:8000/api/',
         timeout: 1000,
-       // headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
+        //headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
     })
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const CityFlights = props => {
         // .catch(err => console.log(err))
 
     }, [])
-    console.log(city)
+    console.log(city,'city')
     return (
         <>
             <div><h1>flights of {city}</h1></div>

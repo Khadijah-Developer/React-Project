@@ -1,19 +1,22 @@
 const mongoose = require("mongoose");
 
 const ticketSchema = mongoose.Schema({
-    seat: {
+	seat: {
 		type: String,
 		match: /[A-F][1-9]\d?/
 	},
-	price: {
-		type: Number,
-		min: 0
+	// price: {
+	// 	type: Number,
+	// 	min: 0
+	// },
+	cabin_class: {
+		type: String,
 	},
 	flight: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'flight'
 	},
-	user :{
+	user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User'
 	}

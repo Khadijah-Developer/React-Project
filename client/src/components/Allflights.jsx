@@ -22,10 +22,14 @@ const Allflights = () => {
     }, [])
     console.log(`/users/${localStorage.getItem('user_email').slice(1,localStorage.getItem('user_email').length-1)}`)
     return (
-        <div>
+
+        <>
+         <div>
             <div>{user.username}</div>
             {data.map(a => <div key={a._id}>{a.source}</div>)}
         </div>
+        
+        </>
     )
 }
 

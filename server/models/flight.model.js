@@ -46,9 +46,7 @@ const flightscheme = new mongoose.Schema(
         type: {
             type: String
         },
-        cabin_class: {
-            type: String
-        },
+        
         // flightNo: {
         //     // type: Number,
         //     // min: 10,
@@ -56,7 +54,7 @@ const flightscheme = new mongoose.Schema(
         //     type:String,
         //     default: 0
         // },
-        Flight_NO: {
+        flight_NO: {
             type: mongoose.Schema.Types.ObjectId, index: true, required: true, auto: true
         },
         price: {
@@ -64,7 +62,14 @@ const flightscheme = new mongoose.Schema(
         },
         airline:{
             type:String
+        },
+        departure_airport:{
+            type:String
+        },
+        arraival_airport:{
+            type:String
         }
+
 
     },
 

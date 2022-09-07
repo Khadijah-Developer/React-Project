@@ -7,6 +7,7 @@ module.exports.findAllFlights = (req, res) => {
 }
 
 module.exports.findFlightsBycity = (req, res) => {
+    console.log('here')
     Flight.find({ destination: req.params.city })
         .then(allFlights => res.json({ flights: allFlights }))
         .catch(err => res.json({ message: "something went wrong", error: err }))

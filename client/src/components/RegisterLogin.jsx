@@ -66,7 +66,7 @@ function RegisterLogin() {
         if (res.data.userToken) {
           localStorage.setItem('user', JSON.stringify(res.data.userToken))
           localStorage.setItem('user_email', JSON.stringify(userLogin.email))
-          history.push('/flights')
+          history.push('/home')
         }
       })
       .catch(err => {
