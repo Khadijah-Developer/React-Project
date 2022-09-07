@@ -13,6 +13,11 @@
 	background-size: 100% 500px;
 
 }
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: var(--bs-navbar-nav-link-padding-x);
+    padding-left: var(--bs-navbar-nav-link-padding-x);
+    color: white;
+}
 .heading_img
 {
 	height: 15vw; 

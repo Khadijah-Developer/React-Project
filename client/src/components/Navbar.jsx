@@ -79,36 +79,12 @@ function Navbar(){
 
             {/* <!-- accordian start --> */}
 
-                <div className="accordion accordion-flush" id="nav_accordian">
+            <div className="accordion accordion-flush" id="nav_accordian">
 
-                <div className="accordion-item">
-                    
-                    <h2 className="accordion-header">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">
-                        <h1>SHOP</h1>
-                    </button>
-                    </h2>
-                
-                </div>
 
-                <div className="accordion-item">
-                    
-                    <h2 className="accordion-header">
-                    <button className="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo">
-                        <h1>ARTICLES</h1>
-                    </button>
-                    </h2>
-                
-                </div>
             <button className="accordion-button collapsed mt-1" type="button">
                 <NavLink  to='/AboutUs' className="nav-link" >
                     <h1 style={{"color":"black"}}>ABOUT US </h1>
-                </NavLink>
-            </button>
-
-            <button className="accordion-button collapsed mt-1" type="button">
-                <NavLink  to='/Pageunderconstruction' className="nav-link" >
-                    <h1 style={{"color":"black"}}>COMMUNITY </h1>
                 </NavLink>
             </button>
 
