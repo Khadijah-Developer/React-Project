@@ -1,5 +1,5 @@
 import { NavLink, useHistory } from 'react-router-dom'; //for linking
-
+import Button from 'react-bootstrap/Button';
 import './css/header.css'
 
 import logo from './imgs/logo.png'
@@ -48,7 +48,7 @@ function Navbar() {
                                     <li className="nav-item nav_text ms-2"><span onClick={handleClick}>Logout</span >  <span><i class="fa fa-sign-out" ></i></span> </li>
 
                                 </>
-                                  : <li className="nav-item ms-5  nav_text"><span onClick={() => history.push('/signup')}>Login</span></li>
+                                    : <li className="nav-item"><Button onClick={e => history.push(`/signup`)} variant="warning">Login </Button> </li>
                                 }
 
                             </ul>
