@@ -8,30 +8,46 @@ const flightscheme = new mongoose.Schema(
         destination: {
             type: String,
         },
+
         departure: {
             type: Date,
-            // default: function() {
-            //     let d = new Date();
-            //     let year = d.getFullYear();
-            //     let month = d.getMonth();
-            //     let day = d.getDate();
-            //     let result = new Date(year + 1, month, day);
-            //     return result;
         },
+        // departure_date: {
+        //     type: Date,
+        //     default: function () {
+        //         let d = new Date();
+        //         let year = d.getFullYear();
+        //         let month = d.getMonth();
+        //         let day = d.getDate();
+        //         let result = new Date(year + 1, month, day);
+        //         return result;
+        //     }
+        // },
+        // departure_time: {
+        //     type: Date,
+        //     default: function () {
+        //         let d = new Date();
+        //         let hours = d.getHours();
+        //         let min = d.getMinutes();
+        //         let sec = d.getSeconds();
+        //         let result = new Date(`${hours}:${min}:${sec}`);
+        //         return result;
+        //     }
+        // },
         arraival: {
             type: Date
         },
-        estimated_time :{
-            type:String
+        estimated_time: {
+            type: String
         },
         seats: {
             type: Number
         },
-        type:{
-            type:String
+        type: {
+            type: String
         },
-        cabin_class:{
-            type:String
+        cabin_class: {
+            type: String
         },
         // flightNo: {
         //     // type: Number,
@@ -40,11 +56,15 @@ const flightscheme = new mongoose.Schema(
         //     type:String,
         //     default: 0
         // },
-        Flight_NO: { type: mongoose.Schema.Types.ObjectId, index: true, required: true, auto: true
-         }, 
-        price:{
-            type:Number
-         }
+        Flight_NO: {
+            type: mongoose.Schema.Types.ObjectId, index: true, required: true, auto: true
+        },
+        price: {
+            type: Number
+        },
+        airline:{
+            type:String
+        }
 
     },
 

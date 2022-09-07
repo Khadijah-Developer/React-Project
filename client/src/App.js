@@ -7,6 +7,7 @@ import RegisterLogin from './components/RegisterLogin';
 import HomeTest from './components/HomeTest';
 import CityFlights from './components/CityFlights'
 import Booking from './components/Booking';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
 
           <Route exact path="/home">
             <HomeTest />
+          </Route>
+
+          <Route exact path="/search">
+            <Search />
           </Route>
 
           <Route exact path="/flights/:city">

@@ -7,7 +7,7 @@ module.exports.findAllFlights = (req, res) => {
 }
 
 module.exports.findFlightsBycity = (req, res) => {
-    Flight.find({ destination: req.params.city})
+    Flight.find({ destination: req.params.city })
         .then(allFlights => res.json({ flights: allFlights }))
         .catch(err => res.json({ message: "something went wrong", error: err }))
 }
@@ -26,7 +26,7 @@ module.exports.createNewFlight = (req, res) => {
 }
 
 module.exports.updateFlight = (req, res) => {
-    Flight.findByIdAndUpdate(req.params.id, req.body, { new: true,runValidators:true})
+    Flight.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         .then(updatedFlight => res.json({ flight: updatedFlight }))
         .catch(err => res.status(400).json(err))
 }
@@ -49,4 +49,24 @@ module.exports.findRandom = (req, res) => {
         })
         .catch(err => res.json({ message: "something went wrong", error: err }))
 
+}
+
+module.exports.SearchFlights = (req, res) => {
+    console.log(req.query)
+    const { source, destination, departure } = req.query
+    console.log(departure)
+    const date = new Date(departure)
+    const day = date.getDate()
+    const month = date.getMonth()
+    const year = date.getFullYear()
+    let nextDay = new Date(year, month, day+2)
+    console.log(date,nextDay)
+    // search date for all day, from today 00:00 am to tomorrow 00:00 am
+    Flight.find({
+        source, destination, departure: {
+            $gte: date, $lt: nextDay
+        }
+    })
+        .then(allFlights => res.json({ flights: allFlights }))
+        .catch(err => res.json({ message: "something went wrong", error: err }))
 }

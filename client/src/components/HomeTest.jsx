@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 const HomeTest =()=> {
 
-    const cities = ['jeddah' , 'ryiadh']
+    const cities = ['Jeddah' , 'Riyadh']
     return (
         <div>
              {cities.map( (city , index) =>
