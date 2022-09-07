@@ -99,6 +99,8 @@ const Booking = (props) => {
     <div className="d-flex flex-column p-2">
         {/* time and and airport name */}
         <p>{flight.estimated_time} {flight.departure_airport}</p>
+        {/* <p>هنا بتكون مدة الرحله </p> */}
+        {/* <p>هنا وقت الوصول واسم المطار </p> */}
     </div>
     </div>
             <div className="d-flex justify-content-end">
