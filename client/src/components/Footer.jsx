@@ -6,7 +6,7 @@ function Footer()
 {
     return(
         <>
-            <div className="container-fluid pt-4 footer me-0">
+            <div className="container-fluid pt-4 footer me-0 mt-5">
                 <div className="row">
                     
                     <div className="col-md-2 mx-auto text-start">
@@ -80,16 +80,15 @@ function Footer()
                     <div className="col-md-7 text-center pt-3 mx-auto">
                         <h6>© 2022, XYZ® - Headwear, T-shirts, Sunglasses, Wallets, Face Masks, Caps. Skateboards</h6>
                         <h5>
-                            <a href="#" title="VISA"> <i className="fa-brands fa-cc-visa"></i> </a>
-                            <a href="#" title="MASTERCARD"> <i className="fa-brands fa-cc-mastercard"></i> </a>
-                            <a href="#" title="AMERICAN EXPRESS"> <i className="fa-brands fa-cc-amex"></i> </a>
-                            <a href="#" title="DINER CLUB"> <i className="fa-brands fa-cc-diners-club"></i> </a>
-                            <a href="#" title="APPLE PAY"> <i className="fa-brands fa-apple-pay"></i> </a>
-                            <a href="#" title="CASH ON DELIVERY"> <i className="fa-regular fa-money-bill-1"></i> </a>
-                            <a href="#" title="AMAZON PAY"> <i className="fa-brands fa-amazon-pay"></i> </a>
-                            <a href="#" title="PAYPAL"> <i className="fa-brands fa-cc-paypal"></i> </a>
-                            <a href="#" title="GOOGLE PAY"> <i className="fa-brands fa-google-pay"></i> </a>
-                            <a href="#" title="DISCOVER"> <i className="fa-brands fa-cc-discover"></i> </a>
+                            <a href="#" title="VISA" className='me-3'>  <i class="fa fa-whatsapp  icon-3d"></i></a>
+                            <a href="#" title="MASTERCARD" className='me-2'><i class="fa fa-instagram"></i></a>
+                            <a href="#" title="AMERICAN EXPRESS" className='me-2'><i class="fa fa-tumblr"></i></a>
+                            <a href="#" title="DINER CLUB" className='me-2'> <i class="fa fa-linkedin"></i> </a>
+                            <a href="#" title="APPLE PAY" className='me-2'>	<i class="fa fa-google-plus"></i></a>
+                            <a href="#" title="CASH ON DELIVERY" className='me-2'> <i class="fa fa-twitter"></i> </a>
+                            <a href="#" title="AMAZON PAY" className='me-2'> <i class="fa fa-facebook"></i></a>
+                            <a href="#" title="PAYPAL" className='me-2'>  <i class="fa fa-codepen"> </i></a>
+                            <a href="#" title="GOOGLE PAY" className='me-2'> <i className="fa-brands fa-google-pay"></i> </a>
                         </h5>
 
                     </div>
