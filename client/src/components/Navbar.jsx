@@ -4,17 +4,40 @@ import './css/header.css'
 
 import logo from './imgs/logo.png'
 import React from 'react';
+import axios from 'axios';
+import UserContext from "../context/userContext";
 
 function Navbar() {
-    const history = useHistory()
-    const [isUpdated, setIsUpdates] = React.useState(false)
-    React.useEffect(()=>{
-        history.push('/home')
-    },[localStorage])
+    const context = React.useContext(UserContext)
 
+    const history = useHistory()
+    // const [user,setUser] = React.useState({})
+    // const [isUpdated, setIsUpdates] = React.useState(false)
+
+    // const instance = axios.create({
+    //     baseURL: 'http://localhost:8000/api/',
+    //     timeout: 1000,
+    //     headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
+    // })
+
+    // React.useEffect(() => {
+    //     if (localStorage.getItem('user_email'))
+    //         instance.get(`/users/${localStorage.getItem('user_email').slice(1, localStorage.getItem('user_email').length - 1)}`)
+    //             .then(res => {
+    //                 setUser(res.data.user)
+    //                 localStorage.setItem('username', JSON.stringify(res.data.user.username))
+    //             })
+    //             .catch(err => console.log(err))
+    //             setIsUpdates(false)
+    // }, [])
+    // React.useEffect(()=>{
+    //     history.push('/home')
+    // },[localStorage])
+    console.log(context)
     const handleClick = () => {
         localStorage.clear()
-
+        //setIsUpdates(true)
+        context.setUserlogged('')
         history.push('/home')
     }
     return (
@@ -61,8 +84,8 @@ function Navbar() {
                                     </div>
                                 </form>  */}
                             <ul className="navbar-nav">
-                                {localStorage.getItem('username') ? <>
-                                    <li className="nav-item text-white mx-1">{localStorage.getItem('username').slice(1,localStorage.getItem('username').length-1)}</li>
+                                {context.userlogged ? <>
+                                    <li className="nav-item text-white mx-1">{context.userlogged}</li>
                                     <li className="nav-item"><button onClick={handleClick}>Logout</button></li>
 
                                 </>

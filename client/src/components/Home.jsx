@@ -52,15 +52,15 @@ function Home() {
     headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
 })
 
-  React.useEffect(() => {
-    if (localStorage.getItem('user_email'))
-      instance.get(`/users/${localStorage.getItem('user_email').slice(1, localStorage.getItem('user_email').length - 1)}`)
-        .then(res => {
-          setUser(res.data.user)
-          localStorage.setItem('username', JSON.stringify(res.data.user.username))
-        })
-        .catch(err => console.log(err))
-  }, [localStorage])
+  // React.useEffect(() => {
+  //   if (localStorage.getItem('user_email'))
+  //     instance.get(`/users/${localStorage.getItem('user_email').slice(1, localStorage.getItem('user_email').length - 1)}`)
+  //       .then(res => {
+  //         setUser(res.data.user)
+  //         localStorage.setItem('username', JSON.stringify(res.data.user.username))
+  //       })
+  //       .catch(err => console.log(err))
+  // }, [localStorage])
 
   //print username
   //console.log(JSON.stringify(localStorage.getItem('username')))
