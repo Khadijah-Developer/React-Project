@@ -12,7 +12,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import SearchResults from './components/SearchResults';
-
+import Paypal from './components/Paypal';
 function App() {
   return (
     <div className="App">
@@ -53,8 +53,12 @@ function App() {
             <CityFlights />
           </Route>
 
-          <Route path="/book/:flight_id">
+          <Route exact path="/book/:flight_id">
             <Booking />
+          </Route>
+
+          <Route exact path="/payment/:flight_id">
+            <Paypal />
           </Route>
 
         </Switch>

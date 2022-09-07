@@ -10,7 +10,6 @@ const CityFlights = props => {
     const history = useHistory();
 
 
-
     const instance = axios.create({
         baseURL: 'http://localhost:8000/api/',
         timeout: 1000,
@@ -26,7 +25,7 @@ const CityFlights = props => {
         // .catch(err => console.log(err))
 
     }, [])
-    console.log(city,'city')
+    
     return (
         <>
             <div><h1>flights of {city}</h1></div>
