@@ -40,62 +40,79 @@ const CityFlights = props => {
     }, [])
 
     return (
-        <>
-            <div><h1>flights of {city}</h1></div>
-            <div style={{ marginTop: "30px" }} className="container">
-
-                {loaded ? flights.map((flight) =>
-                    <>
-                        <div className="container d-flex justify-content-between col-9">
-                            <NavLink className={isActive =>
-                                isActive ? 'nav-link active' : 'nav-link'
-                            } to={`/book/${flight._id}`}>
-                                <div className="card m-4">
-                                    <div className="card-header d-flex justify-content-between colorBG">
-                                        <h4>{flight.airline}</h4>
-                                        <h5>{flight.departure.slice(0, 10).toLocaleString({ month: 'long' })}</h5>
-                                        <h5>{flight.departure.slice(11, flight.departure.length - 8)} - {flight.arraival.slice(11, flight.arraival.length - 8)}</h5>
-                                    </div>
-                                    <div className="card-body  d-flex flex-column">
-                                        <div className="card-title title d-flex justify-content-between flex-row ">
-                                            <div className=" d-flex">
-                                                <div>
-                                                    <h3>{flight.source.toUpperCase()}</h3>
-                                                    <p>{flight.departure_airport}</p>
-                                                </div>
-                                                <span style={{ fontSize: "40px" }}>&#9992; </span>
-                                                <div>
-                                                    <h3>{flight.destination.toUpperCase()} </h3>
-                                                    <p >{flight.arraival_airport}</p>
-                                                </div>
-                                            </div>
-                                            <div className="mx-5">
-                                                <h3 >
-                                                    {flight.estimated_time}
-                                                </h3>
-                                            </div>
-                                            <div>
-                                                <h3>{flight.price} SAR</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </NavLink>
+      <>
+        <div>
+          <h1 className="display-4 mt-5">Flights &#9992; {city}</h1>
+        </div>
+        <div style={{ marginTop: "30px" }} className="container">
+          {loaded ? (
+            flights.map((flight) => (
+              <>
+                <div className="container d-flex justify-content-between col-9">
+                  <NavLink
+                    className={(isActive) =>
+                      isActive ? "nav-link active" : "nav-link"
+                    }
+                    to={`/book/${flight._id}`}
+                  >
+                    <div className="card m-4">
+                      <div className="card-header d-flex justify-content-between colorBG">
+                        <h4>{flight.airline}</h4>
+                        <h5>
+                          {flight.departure
+                            .slice(0, 10)
+                            .toLocaleString({ month: "long" })}
+                        </h5>
+                        <h5>
+                          {flight.departure.slice(
+                            11,
+                            flight.departure.length - 8
+                          )}{" "}
+                          -{" "}
+                          {flight.arraival.slice(
+                            11,
+                            flight.arraival.length - 8
+                          )}
+                        </h5>
+                      </div>
+                      <div className="card-body  d-flex flex-column">
+                        <div className="card-title title d-flex justify-content-between flex-row ">
+                          <div className=" d-flex">
+                            <div>
+                              <h3>{flight.source.toUpperCase()}</h3>
+                              <p>{flight.departure_airport}</p>
+                            </div>
+                            <span style={{ fontSize: "40px" }} className="mt-4">&#9992; </span>
+                            <div>
+                              <h3>{flight.destination.toUpperCase()} </h3>
+                              <p>{flight.arraival_airport}</p>
+                            </div>
+                          </div>
+                          <div className="mx-5">
+                            <h3>{flight.estimated_time}</h3>
+                          </div>
+                          <div>
+                            <h3>{flight.price} SAR</h3>
+                          </div>
                         </div>
+                      </div>
+                    </div>
+                  </NavLink>
+                </div>
+              </>
+            ))
+          ) : (
+            <Spinner animation="border" />
+          )}
 
-                    </>) : <Spinner animation="border" />
-                }
-
-                {/* <h3 key={flight._id}> {flight.source} |  {flight.destination} | {flight.price} &nbsp;
+          {/* <h3 key={flight._id}> {flight.source} |  {flight.destination} | {flight.price} &nbsp;
                          <Button onClick={e => history.push(`/book/${flight._id}`)} variant="warning">Book </Button> <hr /> </h3>
                 ) : <Spinner animation="border" />} */}
 
-                {loaded && !flights.length && <h3>No flights available</h3>}
-
-
-            </div>
-
-        </>)
+          {loaded && !flights.length && <h3>No flights available</h3>}
+        </div>
+      </>
+    );
 }
 
 export default CityFlights;

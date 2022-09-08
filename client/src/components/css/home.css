@@ -444,18 +444,18 @@ height: 700px;
 
 /*  */
 
-::-webkit-scrollbar
+.apparels::-webkit-scrollbar
 {
   width: 12px;  /* for vertical scrollbars */
   height: 6px; /* for horizontal scrollbars */
 }
 
-::-webkit-scrollbar-track
+.apparels::-webkit-scrollbar-track
 {
   background: rgba(0, 49, 67, 0.1);
 }
 
-::-webkit-scrollbar-thumb
+.apparels::-webkit-scrollbar-thumb
 {
   background: rgba(0, 49, 67, 0.5);
 }

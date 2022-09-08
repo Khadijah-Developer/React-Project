@@ -6,7 +6,8 @@ function registerUserRoutes(app) {
   app.post("/api/login", UserController.login);
   
   app.get("/api/users", UserController.getAllUsers);
-  app.get('/api/users/:email', UserController.findUser)
+  app.get('/api/users/:email', UserController.findUser);
+  app.get('/api/user/:id', UserController.findUserById)
 //   app.get("/api/users", authenticate, UserController.getAllUsers);
 }
 

@@ -37,7 +37,7 @@ align-content: center;
 	width: 80px;
 	height: 300px;
 	/* padding: 30px; */
-	/* margin: 30px; */
+	margin-top: 70px;
 }
 #barBig::after {
 	content: "";
@@ -55,16 +55,18 @@ align-content: center;
 	height: 100%;
 	width: 100%;
 }
+
 #mainInfo {
 	width: 50%;
-	height: 100%;
+	height: 90%;
 	padding: 5px;
-	padding-top: 35px;
+	/* padding-top: 35px; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
     color: #001b2e;
+	margin-top: 20px;
 }
 .passenger-info-container,
 .flight-info-container {
@@ -81,6 +83,7 @@ align-content: center;
 .flight-details div {
 	display: flex;
 	flex-direction: column;
+	margin-top: 20px;
 }
 .airline-info{
     font-size: x-large;

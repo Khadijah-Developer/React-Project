@@ -62,4 +62,8 @@ module.exports.findUser = (req, res) => {
     .catch(err => res.status(400).json(err))
 }
 
-
+module.exports.findUserById = (req, res) => {
+  User.findOne({ _id: req.params.id })
+    .then(singleUser => res.json({ user: singleUser }))
+    .catch(err => res.status(400).json(err))
+}

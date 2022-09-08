@@ -10,7 +10,7 @@ const SuccessPayment = ({show , setShow, transaction  }) => {
     
     const handleClose = () =>{
         setShow(false);
-        history.push("/summery")
+        history.push("/boarding")
     } 
     
 

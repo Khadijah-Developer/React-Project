@@ -64,10 +64,13 @@ module.exports.SearchFlights = (req, res) => {
     console.log(date,nextDay)
     // search date for all day, from today 00:00 am to tomorrow 00:00 am
     Flight.find({
+        //  source:source, destination:destination
         source, destination, departure: {
             $gte: date, $lt: nextDay
         }
     })
-        .then(allFlights => res.json({ flights: allFlights }))
+        .then(allFlights =>
+        res.json({ flights: allFlights })
+        )
         .catch(err => res.json({ message: "something went wrong", error: err }))
 }

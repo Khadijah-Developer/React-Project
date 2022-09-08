@@ -12,6 +12,7 @@ import SearchResults from './components/SearchResults';
 import UserContext from './context/userContext'
 import React from 'react';
 import Wrapper from './components/Wrapper';
+import Boarding from './components/Boarding';
 
 import Paypal from './components/Paypal';
 import RegisterTest from './components/RegisterTest'
@@ -45,9 +46,9 @@ function App() {
                 <Allflights />
               </Route>
 
-              {/* <Route exact path="/hometest">
-                <HomeTest />
-              </Route> */}
+            <Route exact path="/boarding">
+                <Boarding />
+              </Route> 
 
               <Route exact path="/search-results/:from/:to/:date">
                 <SearchResults />

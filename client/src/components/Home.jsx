@@ -19,30 +19,28 @@ import gadget_img1 from "./imgs/20%.png";
 import gadget_img2 from "./imgs/itrusted.png";
 import gadget_img3 from "./imgs/unlimited.png";
 
-
 import { NavLink, Link } from "react-router-dom";
 
 import Search from "./Search";
 import React from "react";
-import axios from 'axios'
-
+import axios from "axios";
 
 function Home() {
   const [cities, setCities] = React.useState([
-    { city: 'Riyadh', img: apparel_catagory_1 },
-    { city: 'Jeddah', img: apparel_catagory_2 },
-    { city: 'Abha', img: apparel_catagory_3 },
-    { city: 'Istanbul', img: apparel_catagory_4 },
-    { city: 'Seoul', img: apparel_catagory_5 },
-    { city: 'London', img: apparel_catagory_6 },
-  ])
-  const [user,setUser] = React.useState({})
+    { city: "Riyadh", img: apparel_catagory_1 },
+    { city: "Jeddah", img: apparel_catagory_2 },
+    { city: "Abha", img: apparel_catagory_3 },
+    { city: "Istanbul", img: apparel_catagory_4 },
+    { city: "Seoul", img: apparel_catagory_5 },
+    { city: "London", img: apparel_catagory_6 },
+  ]);
+  const [user, setUser] = React.useState({});
 
   const instance = axios.create({
-    baseURL: 'http://localhost:8000/api/',
+    baseURL: "http://localhost:8000/api/",
     timeout: 1000,
-    headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
-})
+    headers: { authorization: "Bearer " + localStorage.getItem("user") },
+  });
 
   // React.useEffect(() => {
   //   if (localStorage.getItem('user_email'))
@@ -69,43 +67,40 @@ function Home() {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: '-220px' }}>
+      <div style={{ marginTop: "-220px" }}>
         <Search />
       </div>
-      <div className="container-fluid my-5 bg-landing" style={{ marginTop: '150px' }}>
+      <div
+        className="container-fluid my-5 bg-landing"
+        style={{ marginTop: "150px" }}
+      >
         <center>
           <h4 class="mt-5 g_store_heading">Let’s book your next trip!</h4>
         </center>
         <div className="row d-flex flex-nowrap apparels pt-4 m-5">
-          {cities.map(c =>
+          {cities.map((c) => (
             <div className="apparel_1 p-0 m-3 text-center">
-              <Link style={{ textDecoration: 'none' }} to={`/flight/${c.city}`}>
-                <img
-                  src={c.img}
-                  alt=""
-                  className="apparal_catagory_img"
-                />
+              <Link style={{ textDecoration: "none" }} to={`/flight/${c.city}`}>
+                <img src={c.img} alt="" className="apparal_catagory_img" />
 
                 <h5 className="font-style">
                   <b>{c.city}</b>
                 </h5>
               </Link>
             </div>
-          )}
+          ))}
         </div>
       </div>
 
       <div className="container-fluid apparel_banner">
-
         <div className="row">
-        <div className="overlay">
-          <div className="col-md-5 mx-auto text-center pt-5">
-            {/* <img src={ apparel_banner } alt="" className="apparel_banner_text mb-4" /> */}
+          <div className="overlay">
+            <div className="col-md-5 mx-auto text-center pt-5">
+              {/* <img src={ apparel_banner } alt="" className="apparel_banner_text mb-4" /> */}
+            </div>
           </div>
         </div>
       </div>
-      </div>
-
 
       {/* apparel end */}
 
@@ -260,9 +255,8 @@ function Home() {
         </div>
       </div>
 
-
       <To_top></To_top>
-      <Contact ></Contact>
+      <Contact></Contact>
     </>
   );
 }
