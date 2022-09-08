@@ -41,6 +41,7 @@ function Navbar() {
                             </li>
                         </ul>
                        </div>
+                       
                         <div className="d-flex flex-row-reverse search_width">
                             <ul className="navbar-nav">
                                 {localStorage.getItem('username') ? <>
@@ -48,6 +49,7 @@ function Navbar() {
                                     <li className="nav-item nav_text ms-2"><span onClick={handleClick}>Logout</span >  <span><i class="fa fa-sign-out" ></i></span> </li>
 
                                 </>
+                   
                                     : <li className="nav-item"><Button onClick={e => history.push(`/signup`)} variant="warning">Login </Button> </li>
                                 }
 

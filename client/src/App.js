@@ -13,6 +13,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import SearchResults from './components/SearchResults';
 import Paypal from './components/Paypal';
+import RegisterTest from './components/RegisterTest'
 function App() {
   return (
     <div className="App">
@@ -28,9 +29,9 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path='/signup'>
+          {/* <Route exact path='/signup'>
             <RegisterLogin />
-          </Route>
+          </Route> */}
 
           {/* home mariam */}
 
@@ -60,6 +61,13 @@ function App() {
           <Route exact path="/payment/:flight_id">
             <Paypal />
           </Route>
+
+
+          <Route exact path="/signup">
+            <RegisterTest />
+          </Route>
+
+
 
         </Switch>
         <Footer />
