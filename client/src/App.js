@@ -16,7 +16,7 @@ import UserContext from './context/userContext'
 import React from 'react';
 import Wrapper from './components/Wrapper';
 
-
+import Paypal from './components/Paypal';
 function App() {
   const [userlogged, setUserlogged] = React.useState()
 
@@ -64,8 +64,13 @@ function App() {
                 <CityFlights />
               </Route>
 
-              <Route path="/book/:flight_id">
+
+              <Route exact path="/book/:flight_id">
                 <Booking />
+              </Route>
+
+              <Route exact path="/payment/:flight_id">
+                <Paypal />
               </Route>
 
             </Switch>

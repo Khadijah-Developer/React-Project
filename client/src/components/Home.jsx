@@ -2,7 +2,6 @@
 
 import "./css/home.css";
 // import './js_files/Home_counter.js'
-
 import To_top from "./To_top";
 import Contact from "./Floatingcontact";
 // import './js_files/totop_js.js'
@@ -19,15 +18,8 @@ import apparel_catagory_6 from "./imgs/london.jpg";
 import gadget_img1 from "./imgs/20%.png";
 import gadget_img2 from "./imgs/itrusted.png";
 import gadget_img3 from "./imgs/unlimited.png";
-import gadget_img4 from "./imgs/gs_1.jpg";
-import gadget_img5 from "./imgs/gs_2.jpg";
-import gadget_img6 from "./imgs/gs_3.jpg";
 
-import gadget_img8 from "./imgs/apple.png";
-import gadget_img9 from "./imgs/samsung.png";
-import gadget_img10 from "./imgs/oneplus.png";
-import gadget_img11 from "./imgs/mi.png";
-import gadget_img12 from "./imgs/nokia.png";
+
 import { NavLink, Link } from "react-router-dom";
 
 import Search from "./Search";
@@ -77,17 +69,17 @@ function Home() {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: '-100px' }}>
+      <div style={{ marginTop: '-220px' }}>
         <Search />
       </div>
-      <div className="container-fluid my-5" style={{ marginTop: '150px' }}>
+      <div className="container-fluid my-5 bg-landing" style={{ marginTop: '150px' }}>
         <center>
           <h4 class="mt-5 g_store_heading">Let’s book your next trip!</h4>
         </center>
-        <div className="row d-flex flex-nowrap apparels pt-4">
+        <div className="row d-flex flex-nowrap apparels pt-4 m-5">
           {cities.map(c =>
-            <div className="apparel_1 p-0 m-2 text-center">
-              <Link to={`/flight/${c.city}`}>
+            <div className="apparel_1 p-0 m-3 text-center">
+              <Link style={{ textDecoration: 'none' }} to={`/flight/${c.city}`}>
                 <img
                   src={c.img}
                   alt=""
@@ -102,13 +94,18 @@ function Home() {
           )}
         </div>
       </div>
+
       <div className="container-fluid apparel_banner">
+
         <div className="row">
+        <div className="overlay">
           <div className="col-md-5 mx-auto text-center pt-5">
             {/* <img src={ apparel_banner } alt="" className="apparel_banner_text mb-4" /> */}
           </div>
         </div>
       </div>
+      </div>
+
 
       {/* apparel end */}
 
@@ -263,75 +260,9 @@ function Home() {
         </div>
       </div>
 
-      <h1 className="shop_by_catagory mx-auto text-center mt-5">
-        SHOP BY BRAND
-      </h1>
-
-      <div className="container-fluid mt-5 p-0 shop_by_brand_cont">
-        <div className="row d-flex flex-nowrap">
-          <div className="col-md-2 mx-auto text-center mob_brand_div">
-            <img src={gadget_img8} alt="" className="mob_brand_div_img" />{" "}
-            <br />
-          </div>
-
-          <div className="col-md-2 mx-auto text-center mob_brand_div">
-            <img src={gadget_img9} alt="" className="mob_brand_div_img" />{" "}
-            <br />
-          </div>
-
-          <div className="col-md-2 mx-auto text-center mob_brand_div">
-            <img src={gadget_img10} alt="" className="mob_brand_div_img" />{" "}
-            <br />
-          </div>
-        </div>
-      </div>
-
-      {/* <div className="container-fluid p-5">
-                <div className="row p-4 gadget_counter_bg">
-                    
-                    <div className="col-md-4 offset-md-1 pt-5">
-                        <h4 className="mt-2">All New</h4>
-                        <h4><b>Last Gen iPad Pro</b></h4>
-                        <h5>at discounted price. Hurry up!</h5>
-                        <h2> <p id="timer"></p> </h2>
-                        <button type="button" className="btn gadget_counter_btn">View Offer <i className="fa-solid fa-angle-right"></i></button>
-                    </div>
-
-                    <div className="col-md-5 offset-md-1">
-                        <img src={ gadget_img7 } alt="" className='gadget_counter_img' />
-                    </div>
-
-                </div>
-            </div> */}
-
-      {/* gadget catagory end */}
-
-      {/* additional details start */}
-
-      <div className="container-fluid p-0" style={{ overflowX: "hidden" }}>
-        <div className="row p-0">
-          <div className="col-md-6 py-5 text-center add_info_1">
-            <i class="fa-solid mb-3 fa-pen-to-square"></i>
-            <h3>
-              <b>Read the blog</b>
-            </h3>
-            <h6>Latest store, fashion news and trends</h6>
-          </div>
-
-          <div className="col-md-6 py-5 text-center add_info_2">
-            <i class="fa-brands mb-3 fa-instagram"></i>
-            <h3>
-              <b>Read the blog</b>
-            </h3>
-            <h6>Latest store, fashion news and trends</h6>
-          </div>
-        </div>
-      </div>
-
-      {/* additional details end */}
 
       <To_top></To_top>
-      <Contact></Contact>
+      <Contact ></Contact>
     </>
   );
 }

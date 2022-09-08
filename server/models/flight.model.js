@@ -46,7 +46,7 @@ const flightscheme = new mongoose.Schema(
         type: {
             type: String
         },
-        
+
         // flightNo: {
         //     // type: Number,
         //     // min: 10,
@@ -60,14 +60,14 @@ const flightscheme = new mongoose.Schema(
         price: {
             type: Number
         },
-        airline:{
-            type:String
+        airline: {
+            type: String
         },
-        departure_airport:{
-            type:String
+        departure_airport: {
+            type: String
         },
-        arraival_airport:{
-            type:String
+        arraival_airport: {
+            type: String
         }
 
 
@@ -78,7 +78,14 @@ const flightscheme = new mongoose.Schema(
         timestamps: true
     })
 
-
+// calculate estimated time
+flightscheme.pre('save', function(next){
+    let time=(new Date(this.arraival) - new Date(this.departure))
+    let hours= Math.floor(time / (1000 * 60 * 60))
+    let min = Math.floor(time / (1000 * 60 )) - (60*hours)
+    this.estimated_time=`${hours} hr ${min} min`
+    next()
+})
 
 const flight = mongoose.model("flight", flightscheme)
 

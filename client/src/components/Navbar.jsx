@@ -1,5 +1,5 @@
 import { NavLink, useHistory } from 'react-router-dom'; //for linking
-
+import Button from 'react-bootstrap/Button';
 import './css/header.css'
 
 import logo from './imgs/logo.png'
@@ -11,28 +11,7 @@ function Navbar() {
     const context = React.useContext(UserContext)
 
     const history = useHistory()
-    // const [user,setUser] = React.useState({})
-    // const [isUpdated, setIsUpdates] = React.useState(false)
-
-    // const instance = axios.create({
-    //     baseURL: 'http://localhost:8000/api/',
-    //     timeout: 1000,
-    //     headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
-    // })
-
-    // React.useEffect(() => {
-    //     if (localStorage.getItem('user_email'))
-    //         instance.get(`/users/${localStorage.getItem('user_email').slice(1, localStorage.getItem('user_email').length - 1)}`)
-    //             .then(res => {
-    //                 setUser(res.data.user)
-    //                 localStorage.setItem('username', JSON.stringify(res.data.user.username))
-    //             })
-    //             .catch(err => console.log(err))
-    //             setIsUpdates(false)
-    // }, [])
-    // React.useEffect(()=>{
-    //     history.push('/home')
-    // },[localStorage])
+    
     console.log(context)
     const handleClick = () => {
         localStorage.clear()
@@ -42,71 +21,42 @@ function Navbar() {
     }
     return (
         <>
-            <nav className="navbar nav_bg  navbar-expand-lg w-100 p-0 navbar_position">
+            <nav className="navbar nav_bg  navbar-expand-lg w-100 p-0 navbar_position pe-5 ps-5">
                 <div className="container-fluid">
+                    <div className="collapse navbar-collapse justify-content-between ">
+                        <div>
+                            <ul className="navbar-nav">
+                                <li className="nav-item full_nav">
+                                    <img src={logo} alt="" className='logo_img' />
+                                </li>
+                                <li className="nav-item full_nav">
 
-                    <NavLink to='/' className="nav-link" >
-                        <i title='HOME' className="fa-regular fa-sun mx-auto logo" />
-                    </NavLink>
+                                    <NavLink to='/' className="nav-link nav_text" > iFly</NavLink>
 
-                    {/* navbar responsive toggler */}
-                    {/* <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#nav_toggler" style={{ "order": -1 }}>
-                        <i onClick="openNav()" className="fa-solid fa-bars-staggered nav_togg"></i>
-                    </button> */}
+                                </li>
 
-                    {/* Navbar links --------------------------------------------------- */}
-
-                    <div className="collapse navbar-collapse">
-
-                        <ul className="navbar-nav">
-                            <li className="nav-item full_nav">
-                                <img src={logo} alt="" className='logo_img' />
-                            </li>
-                            <li className="nav-item full_nav">
-
-                                <NavLink to='/' className="nav-link nav_text" > iFly</NavLink>
-
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink to='/AboutUs' className="nav-link nav_text" > ABOUT US </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to='/AboutUs' className="nav-link nav_text" > CONTACT US </NavLink>
-                            </li>
-                        </ul>
-
-                        <div className="offset-md-1 search_width">
-                            {/* <form>
-                                    <div className="input-group">
-                                        <input type="text" className="form-control" placeholder="Search" />
-                                            <div className="input-group-text"> <i className="fa-solid fa-magnifying-glass"></i> </div>
-                                    </div>
-                                </form>  */}
+                                <li className="nav-item">
+                                    <NavLink to='/AboutUs' className="nav-link nav_text" > ABOUT US </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to='/AboutUs' className="nav-link nav_text" > CONTACT US </NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="d-flex flex-row-reverse search_width">
                             <ul className="navbar-nav">
                                 {context.userlogged ? <>
-                                    <li className="nav-item text-white mx-1">{context.userlogged}</li>
-                                    <li className="nav-item"><button onClick={handleClick}>Logout</button></li>
+                                    <li className="nav-item text-white mx-1 nav_text pe-2">{context.userlogged}</li>
+                                    <li className="nav-item nav_text ms-2"><span onClick={handleClick}>Logout</span >  <span><i className="fa fa-sign-out" ></i></span> </li>
 
                                 </>
-                                    : <li className="nav-item"><button onClick={() => history.push('/signup')}>Login</button></li>
+                                    : <li className="nav-item"><Button onClick={e => history.push(`/signup`)} variant="warning">Login </Button> </li>
                                 }
 
                             </ul>
                         </div>
 
                     </div>
-
-                    {/* ----------------------------------------------------------------- */}
-
-                    {/* profile and cart buttons */}
-
-                    <i title="PROFILE" className="fa-regular fa-user icons dropdown" id="profiledropdown" data-bs-toggle="dropdown" type="button" />
-
-                    <ul className="dropdown-menu dropdown-menu-end text-center" aria-labelledby="profiledropdown">
-
-
-                    </ul>
 
 
                 </div>
