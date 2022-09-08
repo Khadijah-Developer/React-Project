@@ -4,7 +4,7 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from "react";
 import './css/booking.css'
-import SeatMap from "./SeatMap";
+import SeatMap from "./Seatmap";
 const Booking = props => {
   const { flight_id } = useParams();
   const [flight, setFlight] = useState({})
