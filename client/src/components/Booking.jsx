@@ -18,14 +18,6 @@ const Booking = props => {
     user: '',
   })
 
-  // source: '',
-  // destination: '',
-  // departure: '',
-  // arraival:'',
-  // estimated_time:'',
-  // seats:'',
-  // type:''
-  // })
 
 
   useEffect(() => {

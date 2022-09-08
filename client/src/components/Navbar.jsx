@@ -50,7 +50,8 @@ function Navbar() {
                                     <li className="nav-item nav_text ms-2"><span onClick={handleClick}>Logout</span >  <span><i className="fa fa-sign-out" ></i></span> </li>
 
                                 </>
-                                    : <li className="nav-item"><Button onClick={e => history.push(`/signup`)} variant="warning">Login </Button> </li>
+                   
+                                    : <li className="nav-item"><span className='nav_text' onClick={e => history.push(`/signup`)} variant="warning">Login </span> </li>
                                 }
 
                             </ul>
