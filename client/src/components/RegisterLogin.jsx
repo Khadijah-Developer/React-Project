@@ -1,8 +1,12 @@
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import React from 'react'
+import UserContext from "../context/userContext";
+
 
 function RegisterLogin() {
+  const context = React.useContext(UserContext)
+
   const [user, setUser] = React.useState({
     username: '',
     email: '',
@@ -36,8 +40,10 @@ function RegisterLogin() {
         //---
         if (res.data.userToken) {
           localStorage.setItem('user', JSON.stringify(res.data.userToken))
-          localStorage.setItem('user_id', JSON.stringify(user._id))
-          history.push('/flights')
+          localStorage.setItem('user_email', JSON.stringify(user.email))
+          history.push('/home')
+          context.setUserlogged(res.data.username)
+
         }
       })
       .catch(err => {
@@ -60,13 +66,14 @@ function RegisterLogin() {
     e.preventDefault()
     axios.post(`http://localhost:8000/api/login`, userLogin)
       .then(res => {
-        console.log(res)
+        
         console.log(userLogin,'user')
         //---
         if (res.data.userToken) {
           localStorage.setItem('user', JSON.stringify(res.data.userToken))
           localStorage.setItem('user_email', JSON.stringify(userLogin.email))
-          history.push('/home')
+          history.push('/')
+          context.setUserlogged(res.data.username)
         }
       })
       .catch(err => {

@@ -4,17 +4,19 @@ import './css/header.css'
 
 import logo from './imgs/logo.png'
 import React from 'react';
+import axios from 'axios';
+import UserContext from "../context/userContext";
 
 function Navbar() {
-    const history = useHistory()
-    const [isUpdated, setIsUpdates] = React.useState(false)
-    React.useEffect(()=>{
-        history.push('/home')
-    },[localStorage])
+    const context = React.useContext(UserContext)
 
+    const history = useHistory()
+    
+    console.log(context)
     const handleClick = () => {
         localStorage.clear()
-
+        //setIsUpdates(true)
+        context.setUserlogged('')
         history.push('/home')
     }
     return (
@@ -22,35 +24,34 @@ function Navbar() {
             <nav className="navbar nav_bg  navbar-expand-lg w-100 p-0 navbar_position pe-5 ps-5">
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse justify-content-between ">
-                       <div>
-                       <ul className="navbar-nav">
-                            <li className="nav-item full_nav">
-                                <img src={logo} alt="" className='logo_img' />
-                            </li>
-                            <li className="nav-item full_nav">
+                        <div>
+                            <ul className="navbar-nav">
+                                <li className="nav-item full_nav">
+                                    <img src={logo} alt="" className='logo_img' />
+                                </li>
+                                <li className="nav-item full_nav">
 
-                                <NavLink to='/' className="nav-link nav_text" > iFly</NavLink>
+                                    <NavLink to='/' className="nav-link nav_text" > iFly</NavLink>
 
-                            </li>
+                                </li>
 
-                            <li className="nav-item">
-                                <NavLink to='/AboutUs' className="nav-link nav_text" > ABOUT US </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to='/AboutUs' className="nav-link nav_text" > CONTACT US </NavLink>
-                            </li>
-                        </ul>
-                       </div>
-                       
+                                <li className="nav-item">
+                                    <NavLink to='/AboutUs' className="nav-link nav_text" > ABOUT US </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to='/AboutUs' className="nav-link nav_text" > CONTACT US </NavLink>
+                                </li>
+                            </ul>
+                        </div>
                         <div className="d-flex flex-row-reverse search_width">
                             <ul className="navbar-nav">
-                                {localStorage.getItem('username') ? <>
-                                    <li className="nav-item text-white mx-1 nav_text pe-2">{localStorage.getItem('username').slice(1,localStorage.getItem('username').length-1)}</li>
-                                    <li className="nav-item nav_text ms-2"><span onClick={handleClick}>Logout</span >  <span><i class="fa fa-sign-out" ></i></span> </li>
+                                {context.userlogged ? <>
+                                    <li className="nav-item text-white mx-1 nav_text pe-2">{context.userlogged}</li>
+                                    <li className="nav-item nav_text ms-2"><span onClick={handleClick}>Logout</span >  <span><i className="fa fa-sign-out" ></i></span> </li>
 
                                 </>
                    
-                                    : <li className="nav-item"><Button onClick={e => history.push(`/signup`)} variant="warning">Login </Button> </li>
+                                    : <li className="nav-item"><span className='nav_text' onClick={e => history.push(`/signup`)} variant="warning">Login </span> </li>
                                 }
 
                             </ul>

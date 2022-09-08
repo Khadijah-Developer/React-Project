@@ -15,7 +15,7 @@ module.exports.signup = async function (req, res) {
     //--
     const token = jwt.sign(payload, secretKey)
     //--
-    res.json({ ...user, userToken: token });
+    res.json({username:user.username, email:user.email, userToken: token });
 
   } catch (err) {
     console.log(err.errors, 'err')
@@ -43,7 +43,7 @@ module.exports.login = async function (req, res) {
 
     console.log(user)
 
-    res.json({ ...user, userToken: token })
+    res.json({ username:user.username, email:user.email, userToken: token })
 
   } catch (err) {
     res.status(400).json(" email dosn't exist ");

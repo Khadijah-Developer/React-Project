@@ -440,3 +440,22 @@ height: 700px;
 
 /* gadget catagory end */
 
+
+
+/*  */
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 6px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 49, 67, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 49, 67, 0.5);
+}

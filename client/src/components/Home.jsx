@@ -44,15 +44,15 @@ function Home() {
     headers: { 'authorization': 'Bearer ' + localStorage.getItem('user') },
 })
 
-  React.useEffect(() => {
-    if (localStorage.getItem('user_email'))
-      instance.get(`/users/${localStorage.getItem('user_email').slice(1, localStorage.getItem('user_email').length - 1)}`)
-        .then(res => {
-          setUser(res.data.user)
-          localStorage.setItem('username', JSON.stringify(res.data.user.username))
-        })
-        .catch(err => console.log(err))
-  }, [localStorage])
+  // React.useEffect(() => {
+  //   if (localStorage.getItem('user_email'))
+  //     instance.get(`/users/${localStorage.getItem('user_email').slice(1, localStorage.getItem('user_email').length - 1)}`)
+  //       .then(res => {
+  //         setUser(res.data.user)
+  //         localStorage.setItem('username', JSON.stringify(res.data.user.username))
+  //       })
+  //       .catch(err => console.log(err))
+  // }, [localStorage])
 
   //print username
   //console.log(JSON.stringify(localStorage.getItem('username')))
@@ -76,10 +76,10 @@ function Home() {
         <center>
           <h4 class="mt-5 g_store_heading">Let’s book your next trip!</h4>
         </center>
-        <div className="row d-flex flex-nowrap apparels pt-4">
+        <div className="row d-flex flex-nowrap apparels pt-4 m-5">
           {cities.map(c =>
-            <div className="apparel_1 p-0 m-2 text-center">
-              <Link to={`/flight/${c.city}`}>
+            <div className="apparel_1 p-0 m-3 text-center">
+              <Link style={{ textDecoration: 'none' }} to={`/flight/${c.city}`}>
                 <img
                   src={c.img}
                   alt=""

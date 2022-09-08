@@ -3,96 +3,100 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import React from 'react'
 import './css/RegisterTest.css'
+import UserContext from "../context/userContext";
 
 function RegisterTest() {
-    const [user, setUser] = React.useState({
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      })
-    
-      const [userLogin, setUserLogin] = React.useState({
-        email: '',
-        password: '',
-      })
-      const [errors, setErrors] = React.useState([]);
-      const history = useHistory()
-      //const { setAuth } = useContext(authContext);
-    
-    
-      const handleChange = (e) => {
-        console.log(user)
-        setUser({ ...user, [e.target.name]: e.target.value })
-      }
-    
-      const handleChangeLogin = (e) => {
-        setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
-      }
-    
-      const handleRegister = (e) => {
-        e.preventDefault()
-        axios.post(`http://localhost:8000/api/signup`, user)
-          .then(res => {
-            console.log(res.data, 'data')
-            //---
-            if (res.data.userToken) {
-              localStorage.setItem('user', JSON.stringify(res.data.userToken))
-              localStorage.setItem('user_id', JSON.stringify(user._id))
-              history.push('/home')
-            }
-          })
-          .catch(err => {
-            console.log(err)
-            const data = err.response.data;
-            const errorMessages = [];
-            if ("errors" in data) {
-              for (let field in data.errors) {
-                const validationError = data.errors[field];
-                errorMessages.push(validationError.message);
-              }
-            }
-            else {
-              errorMessages.push("Email dose exist")
-            }
-            setErrors(errorMessages);
-          })
-      }
-      const handleLogin = (e) => {
-        e.preventDefault()
-        axios.post(`http://localhost:8000/api/login`, userLogin)
-          .then(res => {
-            console.log(res)
-            console.log(userLogin,'user')
-            //---
-            if (res.data.userToken) {
-              localStorage.setItem('user', JSON.stringify(res.data.userToken))
-              localStorage.setItem('user_email', JSON.stringify(userLogin.email))
-              history.push('/home')
-            }
-          })
-          .catch(err => {
-            console.log(err)
-            const data = err.response.data;
-            const errorMessages = [];
-    
-            //errorMessages.push(data)
-    
-            if (!err?.response) {
-              errorMessages.push("No Server Response");
-            } else if (err.response?.status === 400) {
-              errorMessages.push("Wrong Email or Password");
-            } else if (err.response?.status === 401) {
-              errorMessages.push("Unauthorized");
-            } else {
-              errorMessages.push("Login Failed");
-            }
-            setErrors(errorMessages);
-          })
-    
-      };
-    
+  const context = React.useContext(UserContext)
 
+  const [user, setUser] = React.useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
+
+  const [userLogin, setUserLogin] = React.useState({
+    email: '',
+    password: '',
+  })
+  const [errors, setErrors] = React.useState([]);
+  const history = useHistory()
+  //const { setAuth } = useContext(authContext);
+
+
+  const handleChange = (e) => {
+    console.log(user)
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+
+  const handleChangeLogin = (e) => {
+    setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
+  }
+
+  const handleRegister = (e) => {
+    e.preventDefault()
+    axios.post(`http://localhost:8000/api/signup`, user)
+      .then(res => {
+        console.log(res.data, 'data')
+        //---
+        if (res.data.userToken) {
+          localStorage.setItem('user', JSON.stringify(res.data.userToken))
+          localStorage.setItem('user_email', JSON.stringify(user.email))
+          history.push('/home')
+          context.setUserlogged(res.data.username)
+
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        const data = err.response.data;
+        const errorMessages = [];
+        if ("errors" in data) {
+          for (let field in data.errors) {
+            const validationError = data.errors[field];
+            errorMessages.push(validationError.message);
+          }
+        }
+        else {
+          errorMessages.push("Email dose exist")
+        }
+        setErrors(errorMessages);
+      })
+  }
+  const handleLogin = (e) => {
+    e.preventDefault()
+    axios.post(`http://localhost:8000/api/login`, userLogin)
+      .then(res => {
+        
+        console.log(userLogin,'user')
+        //---
+        if (res.data.userToken) {
+          localStorage.setItem('user', JSON.stringify(res.data.userToken))
+          localStorage.setItem('user_email', JSON.stringify(userLogin.email))
+          history.push('/')
+          context.setUserlogged(res.data.username)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        const data = err.response.data;
+        const errorMessages = [];
+
+        //errorMessages.push(data)
+
+        if (!err?.response) {
+          errorMessages.push("No Server Response");
+        } else if (err.response?.status === 400) {
+          errorMessages.push("Wrong Email or Password");
+        } else if (err.response?.status === 401) {
+          errorMessages.push("Unauthorized");
+        } else {
+          errorMessages.push("Login Failed");
+        }
+        setErrors(errorMessages);
+      })
+
+  };
   return (
       <>
      <div className="error">
