@@ -103,12 +103,11 @@ function RegisterLogin() {
         <div className="text-danger" key={index}>{errorMessage}</div>
       ))}
 
-      <div className="container w-75 d-flex justify-content-between flex-sm-wrap flex-xl-nowrap
-" >
+      <div className="container w-75 d-flex justify-content-between flex-sm-wrap flex-xl-nowrap" >
         <div className="w-100 m-3">
           <h3>Register</h3>
 
-          <form onSubmit={handleRegister} className="border border-3 p-4 border-dark">
+          <form onSubmit={handleRegister} className="border border-3 p-4 border-dark sign-up-htm">
             <div className="mb-3">
               <label name="username" className="form-label">Name:</label>
               <input name="username" value={user.username} className="form-control" onChange={handleChange} />
@@ -136,7 +135,7 @@ function RegisterLogin() {
 
           <h3>Login</h3>
 
-          <form onSubmit={handleLogin} className="border border-3 p-4 border-dark">
+          <form onSubmit={handleLogin} className="border border-3 p-4 border-dark sign-in-htm">
             <div className="mb-3">
               <label name="email" className="form-label">email:</label>
               <input name="email" value={userLogin.email} className="form-control" onChange={handleChangeLogin} />

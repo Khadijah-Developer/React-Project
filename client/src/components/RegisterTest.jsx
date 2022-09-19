@@ -105,11 +105,11 @@ function RegisterTest() {
       ))}
       <div class="login-wrap">
 	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked /> <label for="tab-1" class="tab"> Sign In</label>
+		<input id="tab-1" type="radio" name="tab" class="sign-in" /> <label for="tab-1" class="tab"> Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up" /><label for="tab-2" class="tab">Sign Up</label>
 		
         <div class="login-form">
-        <form onSubmit={handleLogin} class="sign-in-htm"  >
+        <form onSubmit={handleLogin} className="sign-in-htm"  >
 			{/* <div class="sign-in-htm"  > */}
 				<div class="group">
 					<label for="user" class="label">Email</label>
@@ -133,7 +133,7 @@ function RegisterTest() {
 			{/* </div> */}
         </form> 
 
-         <form onSubmit={handleRegister}  class="sign-up-htm">  
+         <form onSubmit={handleRegister}  className="sign-up-htm">  
 			{/* <div class="sign-up-htm">  */}
      
 				<div class="group">
